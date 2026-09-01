@@ -1,330 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glasnik | The Next Era of Social Connection</title>
-    <style>
-        /* Modern Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background: radial-gradient(circle at top right, #1d1137, #08060f);
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            overflow-x: hidden;
-            padding: 40px 20px;
-        }
-
-        /* Subtle Animated Background Elements */
-        .glow-orb {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 223, 216, 0.15) 0%, transparent 70%);
-            top: -10%;
-            right: 10%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 640px;
-            text-align: center;
-            z-index: 1;
-            margin: auto 0;
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        /* Logo / Branding */
-        .logo {
-            font-size: 3rem;
-            font-weight: 900;
-            letter-spacing: -1.5px;
-            margin-bottom: 12px;
-            background: linear-gradient(45deg, #00dfd8, #7928ca, #ff007f);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .badge {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 6px 18px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: inline-block;
-            margin-bottom: 30px;
-            backdrop-filter: blur(5px);
-            color: #00dfd8;
-        }
-
-        /* Typography */
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 24px;
-            letter-spacing: -0.5px;
-            color: #f3f4f6;
-        }
-
-        p {
-            color: #a3a3c2;
-            font-size: 1.15rem;
-            line-height: 1.6;
-            margin-bottom: 45px;
-        }
-
-        /* Form Styling Updated for Username Claiming */
-        .signup-form {
-            display: flex;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 8px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
-            max-width: 580px;
-            margin: 0 auto 30px auto;
-            transition: all 0.3s ease;
-        }
-
-        .signup-form:focus-within {
-            border-color: rgba(0, 223, 216, 0.6);
-            box-shadow: 0 0 20px rgba(0, 223, 216, 0.15);
-        }
-
-        .signup-form input {
-            background: transparent;
-            border: none;
-            padding: 14px 18px;
-            color: #fff;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .signup-form input[name="username"] {
-            width: 35%;
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .signup-form input[name="email"] {
-            width: 40%;
-            flex-grow: 1;
-        }
-
-        .signup-form input::placeholder {
-            color: #52526b;
-        }
-
-        .signup-form button {
-            background: linear-gradient(45deg, #00dfd8, #00bfa5);
-            color: #000000;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: transform 0.2s ease, filter 0.2s ease;
-        }
-
-        .signup-form button:hover {
-            filter: brightness(1.1);
-            transform: scale(1.02);
-        }
-
-        .signup-form button:disabled {
-            background: #52526b;
-            cursor: not-allowed;
-            transform: none;
-            filter: none;
-        }
-
-        /* Status Message Styling */
-        .status-message {
-            margin-bottom: 20px;
-            font-size: 1rem;
-            min-height: 24px;
-        }
-        .status-success { color: #00dfd8; }
-        .status-error { color: #ff007f; }
-
-        /* Social Icons & Footer Links */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-
-        .social-links a {
-            color: #52526b;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #00dfd8;
-        }
-
-        footer {
-            z-index: 1;
-            font-size: 0.8rem;
-            color: #44445c;
-        }
-
-        footer a {
-            color: #52526b;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.2s ease;
-        }
-
-        footer a:hover {
-            color: #00dfd8;
-        }
-
-        /* Simple Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsive design */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.1rem; }
-            p { font-size: 1rem; }
-            .signup-form {
-                flex-direction: column;
-                background: transparent;
-                border: none;
-                padding: 0;
-                box-shadow: none;
-                gap: 12px;
-            }
-            .signup-form input[name="username"],
-            .signup-form input[name="email"] {
-                background: rgba(255, 255, 255, 0.03);
-                border: 1px solid rgba(255, 255, 255, 0.08);
-                border-radius: 50px;
-                width: 100%;
-                text-align: center;
-                padding: 16px;
-            }
-            .signup-form button {
-                width: 100%;
-                padding: 16px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glasnik — professional community platform</title>
+<meta name="description" content="Glasnik is a professional community platform for Bulgaria and the wider region, developed and operated by ГЛАСНИК ООД (GLASNIK LTD OOD), Sofia, Bulgaria.">
+<meta name="author" content="ГЛАСНИК ООД (GLASNIK LTD OOD)">
+<link rel="canonical" href="https://glasnik.bg/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Glasnik">
+<meta property="og:title" content="Glasnik — professional community platform">
+<meta property="og:description" content="A professional community platform built in Sofia for Bulgaria and the wider region.">
+<meta property="og:url" content="https://glasnik.bg/">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
 
-    <div class="glow-orb"></div>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">Glasnik</a>
+    <nav class="site">
+      <a href="index.html">Home</a>
+      <a href="company.html">Company</a>
+      <a href="support.html">Support</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</header>
 
-    <div class="container">
-        <div class="logo">Glasnik</div>
-        
-        <div class="badge">✨ Phase 1 Beta Coming Soon</div>
-        
-        <h1>Your digital world, unfiltered.</h1>
-        
-        <p>Break free from the endless scrolls and algorithms. Glasnik is building a fresh, localized, and hype-driven social layer tailored for genuine interaction. Drop your info below to lock in your username and get early access.</p>
+<main>
 
-        <!-- Dynamic inline response field for users -->
-        <div id="statusMessage" class="status-message"></div>
+  <div class="hero">
+    <div class="orb"></div>
+    <span class="eyebrow">Sofia, Bulgaria</span>
+    <h1>A professional community<br>built for Bulgaria.</h1>
+    <p class="lead">Glasnik is a professional community platform where people can discuss their work, their industry and their careers with colleagues across the country. We are building it in Sofia for the Bulgarian market, and then for the wider region.</p>
+  </div>
 
-        <!-- Form configured to hit JavaScript API handler -->
-        <form id="claimForm" class="signup-form" onsubmit="handleSubmit(event)">
-            <input type="text" name="username" placeholder="@username" required autocomplete="off" pattern="^[a-zA-Z0-9_]{3,15}$" title="Usernames must be 3-15 characters and contain only letters, numbers, or underscores.">
-            <input type="email" name="email" placeholder="Enter your email address" required>
-            <button type="submit" id="submitBtn">Claim Username</button>
-        </form>
-
+  <section class="band" id="what-we-do">
+    <div class="wrap">
+      <h2>What we do</h2>
+      <p>Glasnik brings professionals together around the things they actually want to talk about — the state of their industry, what roles are worth, how companies are to work for, and where careers go next. Members join through their employer, so conversation happens between people who genuinely do the work.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Professional communities</h3>
+          <p>Groups organised by industry, profession and city, so discussion stays useful to the people taking part.</p>
+        </div>
+        <div class="card">
+          <h3>Career and pay insight</h3>
+          <p>Aggregated information on what roles pay across Bulgarian and regional markets, contributed by members and reported as ranges.</p>
+        </div>
+        <div class="card">
+          <h3>Workplace insight</h3>
+          <p>Company information and reviews contributed by people who work in the industry, to help others make better career decisions.</p>
+        </div>
+        <div class="card">
+          <h3>Built for the region</h3>
+          <p>Bulgarian language support and regional labour market data from the start, rather than a translation of something built elsewhere.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <footer>
-        <span>&copy; 2026 Glasnik. All rights reserved.</span>
-        <a href="terms.html">Terms & Conditions</a>
-    </footer>
+  <section class="band" id="approach">
+    <div class="wrap">
+      <h2>Our approach</h2>
+      <p>Glasnik is a European product, built and operated in the European Union under the GDPR. Personal data stays within the EU, and we do not sell it or build an advertising business on it.</p>
+      <p>Members take part under a professional profile rather than a personal one, so people can speak openly about their industry. We set clear community standards and apply them — our <a href="guidelines.html">Community Guidelines</a> set out what is welcome and what is not, and organisations can raise concerns with us through the process described on our <a href="employers.html">Notice and Action</a> page.</p>
+      <p>How we handle personal data is set out in full in our <a href="privacy.html">Privacy Policy</a>.</p>
+    </div>
+  </section>
 
-    <script>
-        // CONFIGURATION: Replace this with your actual backend REST endpoint URL
-        const API_ENDPOINT = 'https://prod-24.swedencentral.logic.azure.com:443/workflows/d3c5c5c6333f4b2ea1c3e5092abda1b5/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=vC9c_XKoKe_8YlNNyXe4hmhVUXVSVEigew9SgbUUA8E'; 
+  <section class="band" id="company">
+    <div class="wrap">
+      <h2>Company</h2>
+      <p>Glasnik is developed and operated by <strong>ГЛАСНИК ООД (GLASNIK LTD OOD)</strong>, a limited liability company registered in the Republic of Bulgaria under the Bulgarian Commerce Act.</p>
+      <dl class="facts">
+        <dt>Registered legal name</dt><dd>ГЛАСНИК ООД (GLASNIK LTD OOD)</dd>
+        <dt>Legal form</dt><dd>OOD — limited liability company, Republic of Bulgaria</dd>
+        <dt>Company number (EIK)</dt><dd>208861127</dd>
+        <dt>VAT number</dt><dd>BG208861127</dd>
+        <dt>Registered address</dt><dd>18A Neofit Hilendarski str., Vitosha District, Sofia 1434, Bulgaria</dd>
+        <dt>Contact</dt><dd><a href="mailto:contact@glasnik.bg">contact@glasnik.bg</a></dd>
+        <dt>Website</dt><dd><a href="https://glasnik.bg">glasnik.bg</a></dd>
+      </dl>
+      <p><a href="company.html">More about the company →</a> &nbsp;·&nbsp; <a href="contact.html">Contact us →</a></p>
+    </div>
+  </section>
 
-        async function handleSubmit(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const submitBtn = document.getElementById('submitBtn');
-            const statusMessage = document.getElementById('statusMessage');
+  <section class="band" id="early-access">
+    <div class="wrap" style="text-align:center">
+      <h2>Register your interest</h2>
+      <p style="max-width:560px;margin-left:auto;margin-right:auto">Leave your details and we will be in touch when access opens. You can choose the name you would like to use.</p>
 
-            // Normalize the username string (strip @ symbol if the user added it manually)
-            const username = form.querySelector('input[name="username"]').value.replace('@', '').trim();
-            const email = form.querySelector('input[name="email"]').value.trim();
+      <div id="statusMessage" class="status-message"></div>
 
-            // Structure your JSON payload 
-            const payload = {
-                username: username,
-                email: email
-            };
+      <form id="claimForm" class="signup-form" onsubmit="handleSubmit(event)">
+        <input type="text" name="username" placeholder="Preferred name" required autocomplete="off"
+               pattern="^[a-zA-Z0-9_]{3,15}$"
+               title="3-15 characters, letters, numbers or underscores.">
+        <input type="email" name="email" placeholder="Your email address" required autocomplete="email">
+        <button type="submit" id="submitBtn">Register interest</button>
+      </form>
+      <p class="consent">By registering you agree to our <a href="terms.html">Terms of Service</a> and to the processing of your email as described in our <a href="privacy.html">Privacy Policy</a>. We use your email only to contact you about Glasnik.</p>
+    </div>
+  </section>
 
-            // Set loading interface state
-            submitBtn.disabled = true;
-            submitBtn.innerText = 'Reserving...';
-            statusMessage.className = 'status-message';
-            statusMessage.innerText = '';
+</main>
 
-            try {
-                const response = await fetch(API_ENDPOINT, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        // Add authorization headers if your API requires them (e.g., 'Authorization': 'Bearer TOKEN')
-                    },
-                    body: JSON.stringify(payload)
-                });
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>ГЛАСНИК ООД (GLASNIK LTD OOD)</h4>
+        <p>Professional community platform for Bulgaria and the wider region.</p>
+        <p>ЕИК / UIC 208861127 &middot; VAT BG208861127</p>
+        <p>18A Neofit Hilendarski str., Vitosha District, Sofia 1434, Bulgaria</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="company.html">About the company</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="employers.html">For employers</a></li>
+          <li><a href="delete-account.html">Delete your account</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="guidelines.html">Community Guidelines</a></li>
+          <li><a href="cookies.html">Cookie Policy</a></li>
+          <li><a href="mailto:privacy@glasnik.bg">privacy@glasnik.bg</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal-line">
+      &copy; 2026 ГЛАСНИК ООД (GLASNIK LTD OOD). Registered in Sofia, Republic of Bulgaria. ЕИК 208861127.
+      Contact: <a href="mailto:contact@glasnik.bg">contact@glasnik.bg</a>
+    </div>
+  </div>
+</footer>
 
-                if (response.ok) {
-                    // Success handling
-                    statusMessage.className = 'status-message status-success';
-                    statusMessage.innerText = `Awesome! We've reserved @${username} for ${email}.`;
-                    form.reset();
-                } else {
-                    // Server returned an error code (e.g., 400, 409, 500)
-                    const errorData = await response.json().catch(() => ({}));
-                    statusMessage.className = 'status-message status-error';
-                    statusMessage.innerText = errorData.message || 'Something went wrong. Please try another username.';
-                }
-            } catch (error) {
-                // Network failure or CORS blocking issues
-                statusMessage.className = 'status-message status-error';
-                statusMessage.innerText = 'Network error. Please check your connection and try again.';
-                console.error('API Error:', error);
-            } finally {
-                // Reset submit button state
-                submitBtn.disabled = false;
-                submitBtn.innerText = 'Claim Username';
-            }
-        }
-    </script>
+<script>
+const API_ENDPOINT = 'https://prod-24.swedencentral.logic.azure.com:443/workflows/d3c5c5c6333f4b2ea1c3e5092abda1b5/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=vC9c_XKoKe_8YlNNyXe4hmhVUXVSVEigew9SgbUUA8E';
+
+async function handleSubmit(e){
+  e.preventDefault();
+  const form = e.target;
+  const submitBtn = document.getElementById('submitBtn');
+  const statusMessage = document.getElementById('statusMessage');
+  const username = form.querySelector('input[name="username"]').value.replace('@','').trim();
+  const email = form.querySelector('input[name="email"]').value.trim();
+
+  submitBtn.disabled = true;
+  submitBtn.innerText = 'Sending...';
+  statusMessage.className = 'status-message';
+  statusMessage.innerText = '';
+
+  try {
+    const response = await fetch(API_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: username, email: email })
+    });
+    if (response.ok) {
+      statusMessage.className = 'status-message status-success';
+      statusMessage.innerText = "Thank you. We will be in touch at " + email + ".";
+      form.reset();
+    } else {
+      const errorData = await response.json().catch(() => ({}));
+      statusMessage.className = 'status-message status-error';
+      statusMessage.innerText = errorData.message || 'Something went wrong. Please try another username.';
+    }
+  } catch (error) {
+    statusMessage.className = 'status-message status-error';
+    statusMessage.innerText = 'Network error. Please check your connection and try again.';
+    console.error('API Error:', error);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerText = 'Register interest';
+  }
+}
+</script>
 </body>
 </html>
