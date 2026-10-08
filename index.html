@@ -3,80 +3,403 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glasnik — professional community platform</title>
-<meta name="description" content="Glasnik is a professional community platform for Bulgaria and the wider region, developed and operated by ГЛАСНИК ООД (GLASNIK LTD OOD), Sofia, Bulgaria.">
+<title>Glasnik — the professional community for Bulgaria</title>
+<meta name="description" content="Glasnik is a professional community for Bulgaria where members verify where they work and speak under a pseudonym. Developed and operated by ГЛАСНИК ООД (GLASNIK LTD OOD), Sofia.">
 <meta name="author" content="ГЛАСНИК ООД (GLASNIK LTD OOD)">
+<meta name="theme-color" content="#081026">
 <link rel="canonical" href="https://glasnik.bg/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Glasnik">
-<meta property="og:title" content="Glasnik — professional community platform">
-<meta property="og:description" content="A professional community platform built in Sofia for Bulgaria and the wider region.">
+<meta property="og:title" content="Glasnik — the professional community for Bulgaria">
+<meta property="og:description" content="Verify where you work. Speak without your name attached.">
 <meta property="og:url" content="https://glasnik.bg/">
+<meta property="og:image" content="https://glasnik.bg/img/og.jpg">
+<link rel="preload" href="fonts/manrope-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
 
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="index.html">Glasnik</a>
+    <a class="brand" href="index.html" aria-label="Glasnik home"><img src="img/logo.png" alt="" width="34" height="34"><img class="word" src="img/wordmark-white.png" alt="glasnik" height="24"></a>
     <nav class="site">
-      <a href="index.html">Home</a>
+      <a href="index.html#what-we-do">What we do</a>
+      <a href="index.html#app">The app</a>
       <a href="company.html">Company</a>
       <a href="support.html">Support</a>
-      <a href="contact.html">Contact</a>
       <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
+      <a class="nav-cta" href="index.html#beta">Join the beta</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-  <div class="hero">
-    <div class="orb"></div>
-    <span class="eyebrow">Sofia, Bulgaria</span>
-    <h1>A professional community<br>built for Bulgaria.</h1>
-    <p class="lead">Glasnik is a professional community platform where people can discuss their work, their industry and their careers with colleagues across the country. We are building it in Sofia for the Bulgarian market, and then for the wider region.</p>
-  </div>
-
-  <section class="band" id="what-we-do">
-    <div class="wrap">
-      <h2>What we do</h2>
-      <p>Glasnik brings professionals together around the things they actually want to talk about — the state of their industry, what roles are worth, how companies are to work for, and where careers go next. Members join through their employer, so conversation happens between people who genuinely do the work.</p>
-      <div class="grid">
-        <div class="card">
-          <h3>Professional communities</h3>
-          <p>Groups organised by industry, profession and city, so discussion stays useful to the people taking part.</p>
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="glow"></div><div class="glow c"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Now in beta on iPhone and Android</span>
+        <h1>Talk about work.<br><span class="grad">Without your name on it.</span></h1>
+        <p class="lead">Glasnik is a professional community for Bulgaria. Verify where you work with a work email, then speak under a pseudonym, so what you say carries the weight of someone who was actually there, without carrying your name.</p>
+        <div class="chips">
+          <span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/></svg> Verified employers</span>
+          <span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.06 13C15.2 13 13.64 14.33 13.24 16.1C12.29 15.69 11.42 15.8 10.76 16.09C10.35 14.31 8.79 13 6.94 13C4.77 13 3 14.79 3 17C3 19.21 4.77 21 6.94 21C9 21 10.68 19.38 10.84 17.32C11.18 17.08 12.07 16.63 13.16 17.34C13.34 19.39 15 21 17.06 21C19.23 21 21 19.21 21 17C21 14.79 19.23 13 17.06 13M6.94 19.86C5.38 19.86 4.13 18.58 4.13 17S5.39 14.14 6.94 14.14C8.5 14.14 9.75 15.42 9.75 17S8.5 19.86 6.94 19.86M17.06 19.86C15.5 19.86 14.25 18.58 14.25 17S15.5 14.14 17.06 14.14C18.62 14.14 19.88 15.42 19.88 17S18.61 19.86 17.06 19.86M22 10.5H2V12H22V10.5M15.53 2.63C15.31 2.14 14.75 1.88 14.22 2.05L12 2.79L9.77 2.05L9.72 2.04C9.19 1.89 8.63 2.17 8.43 2.68L6 9H18L15.56 2.68L15.53 2.63Z"/></svg> Pseudonymous by design</span>
+          <span class="chip"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18L5,6.3V11.22C5,15.54 8.25,20 12,21M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9"/></svg> Built in the EU, under the GDPR</span>
         </div>
-        <div class="card">
-          <h3>Career and pay insight</h3>
-          <p>Aggregated information on what roles pay across Bulgarian and regional markets, contributed by members and reported as ranges.</p>
+        <div class="btns">
+          <a class="btn" href="#beta">Join the beta</a>
+          <a class="btn ghost" href="#app">See the app <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg></a>
         </div>
-        <div class="card">
-          <h3>Workplace insight</h3>
-          <p>Company information and reviews contributed by people who work in the industry, to help others make better career decisions.</p>
-        </div>
-        <div class="card">
-          <h3>Built for the region</h3>
-          <p>Bulgarian language support and regional labour market data from the start, rather than a translation of something built elsewhere.</p>
+      </div>
+      <div class="phone-col">
+        <div class="example">
+          <span class="tag">Example</span>
+          <div class="tq">
+            <div class="tq-head"><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,6.7L13.45,10.55L17.3,12L13.45,13.45L12,17.3L10.55,13.45L6.7,12L10.55,10.55L12,6.7M12,1L9,9L1,12L9,15L12,23L15,15L23,12L15,9L12,1Z"/></svg> Today's question</span><span class="ans">128 answers</span></div>
+            <div class="tq-q">Is a four-day office week becoming the new normal?</div>
+            <div class="poll">
+              <div class="opt mine"><div class="fill" style="width:64%"></div><span>Yes, it's coming <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg></span><span>64%</span></div>
+              <div class="opt"><div class="fill" style="width:36%"></div><span>No, hybrid is here to stay</span><span>36%</span></div>
+            </div>
+            <div class="tq-foot">You answered · tap to change</div>
+          </div>
+          <div class="post" style="margin-top:14px">
+            <div class="post-head">
+              <img class="av" src="img/avatars/animal-03.svg" alt="">
+              <div class="post-who"><div class="post-name">RoamingOak297 <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/></svg></div><div class="post-meta">Data Scientist · 2h ago</div></div>
+              <span class="post-dots"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"/></svg></span>
+            </div>
+            <p class="post-body">Our team in Sofia just got the "four days in the office" email. Has anyone negotiated an exception that actually stuck?</p>
+            <div class="post-actions"><span class="liked"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/></svg> 24</span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9M10,16V19.08L13.08,16H20V4H4V16H10Z"/></svg> 11</span><span class="save"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M17,18L12,15.82L7,18V5H17M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z"/></svg></span></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="band" id="approach">
+  <!-- ============ WHAT WE DO ============ -->
+  <section class="band" id="what-we-do">
     <div class="wrap">
-      <h2>Our approach</h2>
-      <p>Glasnik is a European product, built and operated in the European Union under the GDPR. Personal data stays within the EU, and we do not sell it or build an advertising business on it.</p>
-      <p>Members take part under a professional profile rather than a personal one, so people can speak openly about their industry. We set clear community standards and apply them — our <a href="guidelines.html">Community Guidelines</a> set out what is welcome and what is not, and organisations can raise concerns with us through the process described on our <a href="employers.html">Notice and Action</a> page.</p>
-      <p>How we handle personal data is set out in full in our <a href="privacy.html">Privacy Policy</a>.</p>
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2>The conversations you can't have in the office chat</h2>
+        <p>Glasnik brings professionals together around the things they actually want to talk about: the state of their industry, how companies are to work for, and where careers go next. Every member has verified their employer, so the conversation is between people who genuinely do the work.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Features">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="f1" data-f="f1"><span class="n">01</span> Guilds</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="f2" data-f="f2"><span class="n">02</span> Daily question</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="f3" data-f="f3"><span class="n">03</span> Posts &amp; polls</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="f4" data-f="f4"><span class="n">04</span> Company pages</button>
+      </div>
+
+      <div class="feature on" id="f1" role="tabpanel">
+        <div>
+          <div class="kicker">Communities</div>
+          <h3 style="font-size:1.6rem;margin-top:0">Guilds</h3>
+          <p>Communities by profession, industry or city, so discussion stays useful to the people taking part. Ask the questions you would not put in a group chat your manager can read.</p>
+          <ul class="ticks">
+            <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Join as many guilds as you like, or start your own.</li>
+            <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Post to a guild, or to everyone on Glasnik.</li>
+            <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Fellow members see your pseudonym, never your name.</li>
+          </ul>
+        </div>
+        <div class="example">
+          <span class="tag">Example</span>
+          <div class="guild"><div class="g-ic" style="background:#F4B63F;color:#3A2600">VS</div><div class="g-txt"><div class="g-name">Varna Startups</div><div class="g-sub">214 members · Founders and early teams on the coast</div></div><span class="pill-btn joined">Joined</span></div>
+          <div class="guild"><div class="g-ic" style="background:#3D7BF0;color:#fff">D&amp;</div><div class="g-txt"><div class="g-name">Data &amp; AI</div><div class="g-sub">1.2k members · Models, pipelines and the people behind them</div></div><span class="pill-btn joined">Joined</span></div>
+          <div class="guild"><div class="g-ic" style="background:#1F9D7A;color:#fff">SP</div><div class="g-txt"><div class="g-name">Sofia Product</div><div class="g-sub">486 members · Product managers and designers in Sofia</div></div><span class="pill-btn">Join</span></div>
+        </div>
+      </div>
+
+      <div class="feature" id="f2" role="tabpanel">
+        <div>
+          <div class="kicker">Feeds</div>
+          <h3 style="font-size:1.6rem;margin-top:0">For You, Trending and one question a day</h3>
+          <p>Your feed brings together what verified professionals are talking about, ranked for you or by what is moving right now. Every day there is one question that everyone can answer in a tap.</p>
+          <ul class="ticks">
+            <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> For You and Trending feeds, and Explore by topic.</li>
+            <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> See how everyone answered the moment you vote.</li>
+            <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Save posts to read later.</li>
+          </ul>
+        </div>
+        <div class="example">
+          <span class="tag">Example</span>
+          <div class="tq">
+            <div class="tq-head"><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,6.7L13.45,10.55L17.3,12L13.45,13.45L12,17.3L10.55,13.45L6.7,12L10.55,10.55L12,6.7M12,1L9,9L1,12L9,15L12,23L15,15L23,12L15,9L12,1Z"/></svg> Today's question</span><span class="ans">312 answers</span></div>
+            <div class="tq-q">Would you take a 10% pay cut for a fully remote job?</div>
+            <div class="poll">
+              <div class="opt"><div class="fill" style="width:38%"></div><span>Yes, without thinking</span><span>38%</span></div>
+              <div class="opt mine"><div class="fill" style="width:47%"></div><span>Depends on the company <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg></span><span>47%</span></div>
+              <div class="opt"><div class="fill" style="width:15%"></div><span>No, never</span><span>15%</span></div>
+            </div>
+            <div class="tq-foot">You answered · tap to change</div>
+          </div>
+          <div class="bento" style="margin-bottom:0">
+            <div class="bt"><div class="k">Trending topics</div><span class="tp">#remote-work</span><span class="tp">#ai</span><span class="tp">#hiring</span></div>
+            <div class="bt"><div class="k">Your guilds</div><div class="gl"><span>VS</span><span style="background:#3D7BF0;color:#fff">D&amp;</span></div><div class="big">2 joined</div><div class="sm">Varna Startups, Data &amp; AI</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature" id="f3" role="tabpanel">
+        <div>
+          <div class="kicker">Conversation</div>
+          <h3 style="font-size:1.6rem;margin-top:0">Posts, polls and comments</h3>
+          <p>Write a post or run a poll under your pseudonym. You decide whether your role and company appear next to it, and you can post fully anonymously when it matters.</p>
+          <ul class="ticks">
+            <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Text posts up to 750 characters, and polls.</li>
+            <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Comments, likes and saved posts.</li>
+            <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Report and block from any post or comment.</li>
+          </ul>
+        </div>
+        <div class="example">
+          <span class="tag">Example</span>
+          <div class="post">
+            <div class="post-head">
+              <img class="av" src="img/avatars/robot-05.svg" alt="">
+              <div class="post-who"><div class="post-name">SilentFalcon88 <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/></svg></div><div class="post-meta">Engineering Manager · 5h ago</div></div>
+              <span class="post-dots"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"/></svg></span>
+            </div>
+            <p class="post-body">How many days a week is your team expected in the office?</p>
+            <div class="poll">
+              <div class="opt"><div class="fill" style="width:12%"></div><span>None</span><span>12%</span></div>
+              <div class="opt mine"><div class="fill" style="width:41%"></div><span>1–2 days <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg></span><span>41%</span></div>
+              <div class="opt"><div class="fill" style="width:33%"></div><span>3 days</span><span>33%</span></div>
+              <div class="opt"><div class="fill" style="width:14%"></div><span>4–5 days</span><span>14%</span></div>
+            </div>
+            <div class="post-actions"><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z"/></svg> 57</span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9M10,16V19.08L13.08,16H20V4H4V16H10Z"/></svg> 23</span><span class="save"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M17,18L12,15.82L7,18V5H17M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z"/></svg></span></div>
+          </div>
+          <div class="comment">
+            <img class="av s" src="img/avatars/animal-02.svg" alt="">
+            <div class="c-bub"><div class="c-name">BoldPanda24</div><div class="c-body">Two days here, and honestly it works. The problem is when "two" quietly becomes "three".</div><div class="c-meta">2h · Like · Reply</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature" id="f4" role="tabpanel">
+        <div>
+          <div class="kicker">Workplaces</div>
+          <h3 style="font-size:1.6rem;margin-top:0">Company pages</h3>
+          <p>A page for each employer, with the conversation about it in one place. Reviews from people who proved they work there are coming soon.</p>
+          <ul class="ticks">
+            <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Only verified employees can review their employer.</li>
+            <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Nothing is shown about an employer until at least five of them have contributed.</li>
+            <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Employers can respond through a published Notice and Action process.</li>
+          </ul>
+        </div>
+        <div class="example">
+          <span class="tag">Example</span>
+          <div class="company">
+            <div class="cover"></div>
+            <div class="inner">
+              <div class="logo">ET</div>
+              <div class="c-name">Example Tech</div>
+              <div class="c-meta">Software · Sofia · 230 verified members</div>
+              <div class="stars"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,15.39L8.24,17.66L9.23,13.38L5.91,10.5L10.29,10.13L12,6.09L13.71,10.13L18.09,10.5L14.77,13.38L15.76,17.66M22,9.24L14.81,8.63L12,2L9.19,8.63L2,9.24L7.45,13.97L5.82,21L12,17.27L18.18,21L16.54,13.97L22,9.24Z"/></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,15.39L8.24,17.66L9.23,13.38L5.91,10.5L10.29,10.13L12,6.09L13.71,10.13L18.09,10.5L14.77,13.38L15.76,17.66M22,9.24L14.81,8.63L12,2L9.19,8.63L2,9.24L7.45,13.97L5.82,21L12,17.27L18.18,21L16.54,13.97L22,9.24Z"/></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,15.39L8.24,17.66L9.23,13.38L5.91,10.5L10.29,10.13L12,6.09L13.71,10.13L18.09,10.5L14.77,13.38L15.76,17.66M22,9.24L14.81,8.63L12,2L9.19,8.63L2,9.24L7.45,13.97L5.82,21L12,17.27L18.18,21L16.54,13.97L22,9.24Z"/></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,15.39L8.24,17.66L9.23,13.38L5.91,10.5L10.29,10.13L12,6.09L13.71,10.13L18.09,10.5L14.77,13.38L15.76,17.66M22,9.24L14.81,8.63L12,2L9.19,8.63L2,9.24L7.45,13.97L5.82,21L12,17.27L18.18,21L16.54,13.97L22,9.24Z"/></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,15.39L8.24,17.66L9.23,13.38L5.91,10.5L10.29,10.13L12,6.09L13.71,10.13L18.09,10.5L14.77,13.38L15.76,17.66M22,9.24L14.81,8.63L12,2L9.19,8.63L2,9.24L7.45,13.97L5.82,21L12,17.27L18.18,21L16.54,13.97L22,9.24Z"/></svg></div>
+              <div class="soon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,17C10.89,17 10,16.1 10,15C10,13.89 10.89,13 12,13A2,2 0 0,1 14,15A2,2 0 0,1 12,17M18,20V10H6V20H18M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V10C4,8.89 4.89,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"/></svg> Employee reviews are coming soon. Ratings appear once at least five verified employees have reviewed a company.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="example-note">Examples use illustrative content. Names shown are pseudonyms, as they are in the app.</p>
     </div>
   </section>
 
+  <!-- ============ THE APP ============ -->
+  <section class="band" id="app">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">The app</span>
+        <h2>Glasnik in your pocket</h2>
+        <p>This is how the app looks on an iPhone today. Tap through the screens.</p>
+      </div>
+      <div class="demo">
+        <div class="demo-list" role="tablist" aria-label="App screens">
+          <button class="demo-item" role="tab" aria-selected="true" data-s="s1"><span class="t"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9,13H15V19H18V10L12,5.5L6,10V19H9V13M4,21V9L12,3L20,9V21H4Z"/></svg> Home</span><p>Today's question, your guilds and trending topics at a glance, then your For You feed.</p></button>
+          <button class="demo-item" role="tab" aria-selected="false" data-s="s2"><span class="t"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,5A3.5,3.5 0 0,0 8.5,8.5A3.5,3.5 0 0,0 12,12A3.5,3.5 0 0,0 15.5,8.5A3.5,3.5 0 0,0 12,5M12,7A1.5,1.5 0 0,1 13.5,8.5A1.5,1.5 0 0,1 12,10A1.5,1.5 0 0,1 10.5,8.5A1.5,1.5 0 0,1 12,7M5.5,8A2.5,2.5 0 0,0 3,10.5C3,11.44 3.53,12.25 4.29,12.68C4.65,12.88 5.06,13 5.5,13C5.94,13 6.35,12.88 6.71,12.68C7.08,12.47 7.39,12.17 7.62,11.81C6.89,10.86 6.5,9.7 6.5,8.5C6.5,8.41 6.5,8.31 6.5,8.22C6.2,8.08 5.86,8 5.5,8M18.5,8C18.14,8 17.8,8.08 17.5,8.22C17.5,8.31 17.5,8.41 17.5,8.5C17.5,9.7 17.11,10.86 16.38,11.81C16.5,12 16.63,12.15 16.78,12.3C16.94,12.45 17.1,12.58 17.29,12.68C17.65,12.88 18.06,13 18.5,13C18.94,13 19.35,12.88 19.71,12.68C20.47,12.25 21,11.44 21,10.5A2.5,2.5 0 0,0 18.5,8M12,14C9.66,14 5,15.17 5,17.5V19H19V17.5C19,15.17 14.34,14 12,14M4.71,14.55C2.78,14.78 0,15.76 0,17.5V19H3V17.07C3,16.06 3.69,15.22 4.71,14.55M19.29,14.55C20.31,15.22 21,16.06 21,17.07V19H24V17.5C24,15.76 21.22,14.78 19.29,14.55M12,16C13.53,16 15.24,16.5 16.23,17H7.77C8.76,16.5 10.47,16 12,16Z"/></svg> Guilds</span><p>Find communities for your profession, industry or city, and join them with a tap.</p></button>
+          <button class="demo-item" role="tab" aria-selected="false" data-s="s3"><span class="t"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15,4V11H5.17L4,12.17V4H15M16,2H3A1,1 0 0,0 2,3V17L6,13H16A1,1 0 0,0 17,12V3A1,1 0 0,0 16,2M21,6H19V15H6V17A1,1 0 0,0 7,18H18L22,22V7A1,1 0 0,0 21,6Z"/></svg> Posts and comments</span><p>Polls show results as soon as you vote. The author's replies are marked so the thread is easy to follow.</p></button>
+          <button class="demo-item" role="tab" aria-selected="false" data-s="s4"><span class="t"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.06 13C15.2 13 13.64 14.33 13.24 16.1C12.29 15.69 11.42 15.8 10.76 16.09C10.35 14.31 8.79 13 6.94 13C4.77 13 3 14.79 3 17C3 19.21 4.77 21 6.94 21C9 21 10.68 19.38 10.84 17.32C11.18 17.08 12.07 16.63 13.16 17.34C13.34 19.39 15 21 17.06 21C19.23 21 21 19.21 21 17C21 14.79 19.23 13 17.06 13M6.94 19.86C5.38 19.86 4.13 18.58 4.13 17S5.39 14.14 6.94 14.14C8.5 14.14 9.75 15.42 9.75 17S8.5 19.86 6.94 19.86M17.06 19.86C15.5 19.86 14.25 18.58 14.25 17S15.5 14.14 17.06 14.14C18.62 14.14 19.88 15.42 19.88 17S18.61 19.86 17.06 19.86M22 10.5H2V12H22V10.5M15.53 2.63C15.31 2.14 14.75 1.88 14.22 2.05L12 2.79L9.77 2.05L9.72 2.04C9.19 1.89 8.63 2.17 8.43 2.68L6 9H18L15.56 2.68L15.53 2.63Z"/></svg> Posting anonymously</span><p>Choose how you appear before you post: your pseudonym, or fully anonymous with just your role and company.</p></button>
+        </div>
+        <div class="phone-wrap">
+          <div class="phone" aria-label="Glasnik app screens">
+            <div class="screen">
+              <div class="notch"></div>
+              <div class="status"><span>9:41</span><span class="r">5G <span class="batt">100</span></span></div>
+
+              <!-- Home -->
+              <div class="scr on" id="s1">
+                <div class="h-row">
+                  <img class="av" src="img/avatars/animal-02.svg" alt="">
+                  <div class="hi"><div class="wb">Welcome back</div><div class="nm">Hi, BoldPanda24</div></div>
+                  <img class="mark" src="img/logo.png" alt="">
+                  <span class="tile-btn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"/></svg></span>
+                </div>
+                <div class="seg"><span class="on">For You</span><span>Trending</span></div>
+                <div class="tq">
+                  <div class="tq-head"><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,6.7L13.45,10.55L17.3,12L13.45,13.45L12,17.3L10.55,13.45L6.7,12L10.55,10.55L12,6.7M12,1L9,9L1,12L9,15L12,23L15,15L23,12L15,9L12,1Z"/></svg> Today's question</span><span class="ans">128 answers</span></div>
+                  <div class="tq-q">Is a four-day office week becoming the new normal?</div>
+                  <div class="poll">
+                    <div class="opt mine"><div class="fill" style="width:64%"></div><span>Yes, it's coming <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg></span><span>64%</span></div>
+                    <div class="opt"><div class="fill" style="width:36%"></div><span>No, hybrid stays</span><span>36%</span></div>
+                  </div>
+                  <div class="tq-foot">You answered · tap to change</div>
+                </div>
+                <div class="bento">
+                  <div class="bt"><div class="k">Trending topics</div><span class="tp">#remote-work</span><span class="tp">#ai</span></div>
+                  <div class="bt"><div class="k">Your guilds</div><div class="gl"><span>VS</span><span style="background:#3D7BF0;color:#fff">D&amp;</span></div><div class="big">2 joined</div><div class="sm">Varna Startups, Data &amp; AI</div></div>
+                </div>
+                <div class="kick">For You</div>
+                <div class="post">
+                  <div class="post-head">
+                    <img class="av" src="img/avatars/animal-03.svg" alt="">
+                    <div class="post-who"><div class="post-name">RoamingOak297 <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/></svg></div><div class="post-meta">Data Scientist · 2h ago</div></div>
+                    <span class="post-dots"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"/></svg></span>
+                  </div>
+                  <p class="post-body">Our team just got the "four days in the office" email. Has anyone negotiated an exception that actually stuck?</p>
+                </div>
+              </div>
+
+              <!-- Guilds -->
+              <div class="scr" id="s2">
+                <div class="scr-title">Guilds</div>
+                <div class="search"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/></svg> Search guilds</div>
+                <div class="mini-tabs"><span>My guilds</span><span class="on">Discover</span></div>
+                <div class="guild"><div class="g-ic" style="background:#1F9D7A;color:#fff">SP</div><div class="g-txt"><div class="g-name">Sofia Product</div><div class="g-sub">486 members</div></div><span class="pill-btn">Join</span></div>
+                <div class="guild"><div class="g-ic" style="background:#A66BE0;color:#fff">QA</div><div class="g-txt"><div class="g-name">QA &amp; Testing BG</div><div class="g-sub">173 members</div></div><span class="pill-btn">Join</span></div>
+                <div class="guild"><div class="g-ic" style="background:#E8603F;color:#fff">FB</div><div class="g-txt"><div class="g-name">Frontend Bulgaria</div><div class="g-sub">652 members</div></div><span class="pill-btn">Join</span></div>
+                <div class="guild"><div class="g-ic" style="background:#F4B63F;color:#3A2600">PV</div><div class="g-txt"><div class="g-name">Plovdiv Tech</div><div class="g-sub">298 members</div></div><span class="pill-btn">Join</span></div>
+                <div class="guild"><div class="g-ic" style="background:#2A6BD6;color:#fff">FT</div><div class="g-txt"><div class="g-name">FinTech Sofia</div><div class="g-sub">540 members</div></div><span class="pill-btn joined">Joined</span></div>
+              </div>
+
+              <!-- Post + comments -->
+              <div class="scr" id="s3">
+                <div class="topbar"><span class="tile-btn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/></svg></span><span class="t">Post</span><span class="tile-btn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z"/></svg></span></div>
+                <div class="post">
+                  <div class="post-head">
+                    <img class="av" src="img/avatars/robot-05.svg" alt="">
+                    <div class="post-who"><div class="post-name">SilentFalcon88 <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/></svg></div><div class="post-meta">Engineering Manager · 5h ago</div></div>
+                  </div>
+                  <p class="post-body">How many days a week is your team expected in the office?</p>
+                  <div class="poll">
+                    <div class="opt"><div class="fill" style="width:12%"></div><span>None</span><span>12%</span></div>
+                    <div class="opt mine"><div class="fill" style="width:41%"></div><span>1–2 days <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg></span><span>41%</span></div>
+                    <div class="opt"><div class="fill" style="width:33%"></div><span>3 days</span><span>33%</span></div>
+                  </div>
+                  <div class="post-actions"><span class="liked"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/></svg> 57</span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9M10,16V19.08L13.08,16H20V4H4V16H10Z"/></svg> 23</span><span class="save"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M17,18L12,15.82L7,18V5H17M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z"/></svg></span></div>
+                </div>
+                <div class="comment">
+                  <img class="av s" src="img/avatars/animal-02.svg" alt="">
+                  <div class="c-bub"><div class="c-name">BoldPanda24</div><div class="c-body">Two days here, and honestly it works.</div><div class="c-meta">2h · Like · Reply</div></div>
+                </div>
+                <div class="comment">
+                  <img class="av s" src="img/avatars/robot-05.svg" alt="">
+                  <div class="c-bub"><div class="c-name">SilentFalcon88 <span class="badge-author">Author</span></div><div class="c-body">Same. The trouble starts when "two" quietly becomes "three".</div><div class="c-meta">1h · Like · Reply</div></div>
+                </div>
+              </div>
+
+              <!-- Composer -->
+              <div class="scr" id="s4">
+                <div class="topbar"><span class="tile-btn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg></span><span class="t">New post</span><span class="post-btn">Post</span></div>
+                <div class="ident">
+                  <span class="anon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.06 13C15.2 13 13.64 14.33 13.24 16.1C12.29 15.69 11.42 15.8 10.76 16.09C10.35 14.31 8.79 13 6.94 13C4.77 13 3 14.79 3 17C3 19.21 4.77 21 6.94 21C9 21 10.68 19.38 10.84 17.32C11.18 17.08 12.07 16.63 13.16 17.34C13.34 19.39 15 21 17.06 21C19.23 21 21 19.21 21 17C21 14.79 19.23 13 17.06 13M6.94 19.86C5.38 19.86 4.13 18.58 4.13 17S5.39 14.14 6.94 14.14C8.5 14.14 9.75 15.42 9.75 17S8.5 19.86 6.94 19.86M17.06 19.86C15.5 19.86 14.25 18.58 14.25 17S15.5 14.14 17.06 14.14C18.62 14.14 19.88 15.42 19.88 17S18.61 19.86 17.06 19.86M22 10.5H2V12H22V10.5M15.53 2.63C15.31 2.14 14.75 1.88 14.22 2.05L12 2.79L9.77 2.05L9.72 2.04C9.19 1.89 8.63 2.17 8.43 2.68L6 9H18L15.56 2.68L15.53 2.63Z"/></svg></span>
+                  <div class="g-txt"><div class="g-name">Posting anonymously</div><div class="g-sub">Shown as Data Scientist · Example Tech</div></div>
+                  <span class="toggle" aria-hidden="true"></span>
+                </div>
+                <div class="editor">Is anyone else seeing interview loops get longer? Five rounds for a mid-level role feels like a lot.<span class="caret"></span></div>
+                <div class="post-topics"><span class="topic">#hiring</span><span class="topic">#career</span></div>
+                <div class="count">112 / 750</div>
+              </div>
+
+              <div class="navbar" id="navbar">
+                <span class="ni on" data-n="s1"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,3L20,9V21H15V14H9V21H4V9L12,3Z"/></svg></span>
+                <span class="ni"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7,17L10.2,10.2L17,7L13.8,13.8L7,17M12,11.1A0.9,0.9 0 0,0 11.1,12A0.9,0.9 0 0,0 12,12.9A0.9,0.9 0 0,0 12.9,12A0.9,0.9 0 0,0 12,11.1M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z"/></svg></span>
+                <span class="plus"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/></svg></span>
+                <span class="ni" data-n="s2"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,5A3.5,3.5 0 0,0 8.5,8.5A3.5,3.5 0 0,0 12,12A3.5,3.5 0 0,0 15.5,8.5A3.5,3.5 0 0,0 12,5M12,7A1.5,1.5 0 0,1 13.5,8.5A1.5,1.5 0 0,1 12,10A1.5,1.5 0 0,1 10.5,8.5A1.5,1.5 0 0,1 12,7M5.5,8A2.5,2.5 0 0,0 3,10.5C3,11.44 3.53,12.25 4.29,12.68C4.65,12.88 5.06,13 5.5,13C5.94,13 6.35,12.88 6.71,12.68C7.08,12.47 7.39,12.17 7.62,11.81C6.89,10.86 6.5,9.7 6.5,8.5C6.5,8.41 6.5,8.31 6.5,8.22C6.2,8.08 5.86,8 5.5,8M18.5,8C18.14,8 17.8,8.08 17.5,8.22C17.5,8.31 17.5,8.41 17.5,8.5C17.5,9.7 17.11,10.86 16.38,11.81C16.5,12 16.63,12.15 16.78,12.3C16.94,12.45 17.1,12.58 17.29,12.68C17.65,12.88 18.06,13 18.5,13C18.94,13 19.35,12.88 19.71,12.68C20.47,12.25 21,11.44 21,10.5A2.5,2.5 0 0,0 18.5,8M12,14C9.66,14 5,15.17 5,17.5V19H19V17.5C19,15.17 14.34,14 12,14M4.71,14.55C2.78,14.78 0,15.76 0,17.5V19H3V17.07C3,16.06 3.69,15.22 4.71,14.55M19.29,14.55C20.31,15.22 21,16.06 21,17.07V19H24V17.5C24,15.76 21.22,14.78 19.29,14.55M12,16C13.53,16 15.24,16.5 16.23,17H7.77C8.76,16.5 10.47,16 12,16Z"/></svg></span>
+                <span class="ni"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z"/></svg></span>
+              </div>
+              <div class="home-ind"></div>
+            </div>
+          </div>
+          <div class="demo-dots"><span class="on"></span><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VERIFICATION ============ -->
+  <section class="band" id="verification">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How verification works</span>
+        <h2>We prove where you work, not who you are</h2>
+        <p>The hard part of an anonymous network is proving something true about someone while knowing as little about them as possible. This is how we do it.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h3>You enter a work email</h3><p>We send a one-time code to confirm you can receive mail at that address.</p></div>
+        <div class="step"><div class="n">2</div><h3>The address is set aside</h3><p>We keep it only in protected form, with its domain, never alongside anything you post. Nobody else ever sees it.</p></div>
+        <div class="step"><div class="n">3</div><h3>Your employer is established, you are not</h3><p>Other members see that a verified professional is speaking. They never see your name, your email or your account.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APPROACH ============ -->
+  <section class="band" id="approach">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Our approach</span>
+        <h2>A European product, built to keep you unidentifiable</h2>
+        <p>Glasnik is built and operated in the European Union under the GDPR. We do not sell personal data or build an advertising business on it. Our <a href="guidelines.html">Community Guidelines</a> set out what is welcome, and organisations can raise concerns through our <a href="employers.html">Notice and Action</a> process. The full detail is in our <a href="privacy.html">Privacy Policy</a>.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="v">0</div><div class="l">advertising or analytics trackers in the app</div></div>
+        <div class="stat"><div class="v">EU</div><div class="l">where our servers and database run</div></div>
+        <div class="stat"><div class="v">5+</div><div class="l">verified reviewers before any employer rating appears</div></div>
+      </div>
+      <ul class="rules">
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2,5.27L3.28,4L20,20.72L18.73,22L15.65,18.92C14.5,19.3 13.28,19.5 12,19.5C7,19.5 2.73,16.39 1,12C1.69,10.24 2.79,8.69 4.19,7.46L2,5.27M12,9A3,3 0 0,1 15,12C15,12.35 14.94,12.69 14.83,13L11,9.17C11.31,9.06 11.65,9 12,9M12,4.5C17,4.5 21.27,7.61 23,12C22.18,14.08 20.79,15.88 19,17.19L17.58,15.76C18.94,14.82 20.06,13.54 20.82,12C19.17,8.64 15.76,6.5 12,6.5C10.91,6.5 9.84,6.68 8.84,7L7.3,5.47C8.74,4.85 10.33,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C12.69,17.5 13.37,17.43 14,17.29L11.72,15C10.29,14.85 9.15,13.71 9,12.28L5.6,8.87C4.61,9.72 3.78,10.78 3.18,12Z"/></svg><span><strong>Your work email stays private.</strong>Kept only in protected form, never shown, never next to your posts.</span></li>
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.36,6L12.76,8H18V14H14.64L14.24,12H7V6H12.36M14,4H5V21H7V14H12.6L13,16H20V6H14.4"/></svg><span><strong>Report, block and delete are never gated.</strong>Not behind payment, reputation or anything else.</span></li>
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z"/></svg><span><strong>Deleting your account deletes it.</strong>Your posts, history and verification are removed.</span></li>
+        <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4,1H20A1,1 0 0,1 21,2V6A1,1 0 0,1 20,7H4A1,1 0 0,1 3,6V2A1,1 0 0,1 4,1M4,9H20A1,1 0 0,1 21,10V14A1,1 0 0,1 20,15H4A1,1 0 0,1 3,14V10A1,1 0 0,1 4,9M4,17H20A1,1 0 0,1 21,18V22A1,1 0 0,1 20,23H4A1,1 0 0,1 3,22V18A1,1 0 0,1 4,17M9,5H10V3H9V5M9,13H10V11H9V13M9,21H10V19H9V21M5,3V5H7V3H5M5,11V13H7V11H5M5,19V21H7V19H5Z"/></svg><span><strong>Crash reports stay with us.</strong>They go to our own servers, sent without your login, so they are not linked to you.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ BETA ============ -->
+  <section class="band" id="beta">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow"><span class="dot"></span>Beta</span>
+        <h2>Join the beta</h2>
+        <p>Glasnik is in beta with a growing group of testers in Bulgaria. Things will break, and we want to hear about it.</p>
+      </div>
+      <div class="beta">
+        <div class="card">
+          <div class="os"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/></svg> iPhone</div>
+          <p>Install Apple's <strong>TestFlight</strong> app, then open the invitation link on your iPhone. Places are limited during the beta.</p>
+          <div class="btns"><a class="btn" href="https://testflight.apple.com/join/sNBn4G7b">Open in TestFlight</a></div>
+        </div>
+        <div class="card">
+          <div class="os"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.61 15.15C16.15 15.15 15.77 14.78 15.77 14.32S16.15 13.5 16.61 13.5H16.61C17.07 13.5 17.45 13.86 17.45 14.32C17.45 14.78 17.07 15.15 16.61 15.15M7.41 15.15C6.95 15.15 6.57 14.78 6.57 14.32C6.57 13.86 6.95 13.5 7.41 13.5H7.41C7.87 13.5 8.24 13.86 8.24 14.32C8.24 14.78 7.87 15.15 7.41 15.15M16.91 10.14L18.58 7.26C18.67 7.09 18.61 6.88 18.45 6.79C18.28 6.69 18.07 6.75 18 6.92L16.29 9.83C14.95 9.22 13.5 8.9 12 8.91C10.47 8.91 9 9.24 7.73 9.82L6.04 6.91C5.95 6.74 5.74 6.68 5.57 6.78C5.4 6.87 5.35 7.08 5.44 7.25L7.1 10.13C4.25 11.69 2.29 14.58 2 18H22C21.72 14.59 19.77 11.7 16.91 10.14H16.91Z"/></svg> Android</div>
+          <p>The Android beta is installed directly, outside Google Play. Write to us and we will send you the download link.</p>
+          <div class="btns"><a class="btn ghost" href="mailto:support@glasnik.bg?subject=Android%20beta">Request Android access</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPANY ============ -->
   <section class="band" id="company">
     <div class="wrap">
-      <h2>Company</h2>
-      <p>Glasnik is developed and operated by <strong>ГЛАСНИК ООД (GLASNIK LTD OOD)</strong>, a limited liability company registered in the Republic of Bulgaria under the Bulgarian Commerce Act.</p>
+      <div class="section-head">
+        <span class="eyebrow">Company</span>
+        <h2>Who runs Glasnik</h2>
+        <p>Glasnik is developed and operated by <strong>ГЛАСНИК ООД (GLASNIK LTD OOD)</strong>, a limited liability company registered in the Republic of Bulgaria under the Bulgarian Commerce Act.</p>
+      </div>
       <dl class="facts">
         <dt>Registered legal name</dt><dd>ГЛАСНИК ООД (GLASNIK LTD OOD)</dd>
         <dt>Legal form</dt><dd>OOD — limited liability company, Republic of Bulgaria</dd>
@@ -90,13 +413,14 @@
     </div>
   </section>
 
+  <!-- ============ REGISTER INTEREST ============ -->
   <section class="band" id="early-access">
     <div class="wrap" style="text-align:center">
-      <h2>Register your interest</h2>
-      <p style="max-width:560px;margin-left:auto;margin-right:auto">Leave your details and we will be in touch when access opens. You can choose the name you would like to use.</p>
-
+      <div class="section-head center">
+        <h2>Not ready to install yet?</h2>
+        <p>Leave your details and we will tell you when Glasnik launches. You can choose the name you would like to use.</p>
+      </div>
       <div id="statusMessage" class="status-message"></div>
-
       <form id="claimForm" class="signup-form" onsubmit="handleSubmit(event)">
         <input type="text" name="username" placeholder="Preferred name" required autocomplete="off"
                pattern="^[a-zA-Z0-9_]{3,15}$"
@@ -148,6 +472,42 @@
 </footer>
 
 <script>
+// Feature tabs ("What we do")
+document.querySelectorAll('.tab').forEach(function (tab) {
+  tab.addEventListener('click', function () {
+    document.querySelectorAll('.tab').forEach(function (t) { t.setAttribute('aria-selected', String(t === tab)); });
+    document.querySelectorAll('.feature').forEach(function (f) { f.classList.toggle('on', f.id === tab.dataset.f); });
+  });
+});
+
+// App screens: tap a description (or let it cycle on its own)
+(function () {
+  var items = Array.prototype.slice.call(document.querySelectorAll('.demo-item'));
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.demo-dots span'));
+  var navItems = document.querySelectorAll('#navbar .ni');
+  var navbar = document.getElementById('navbar');
+  var current = 0, timer = null;
+  function show(i) {
+    current = i;
+    items.forEach(function (it, k) { it.setAttribute('aria-selected', String(k === i)); });
+    dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
+    var id = items[i].dataset.s;
+    document.querySelectorAll('.scr').forEach(function (s) { s.classList.toggle('on', s.id === id); });
+    navItems.forEach(function (n) { n.classList.toggle('on', n.dataset.n === id); });
+    // The tab bar hides on full-screen flows (post detail, composer), as in the app.
+    navbar.style.display = (id === 's3' || id === 's4') ? 'none' : 'flex';
+  }
+  function start() {
+    stop();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    timer = setInterval(function () { show((current + 1) % items.length); }, 5000);
+  }
+  function stop() { if (timer) clearInterval(timer); timer = null; }
+  items.forEach(function (it, k) { it.addEventListener('click', function () { show(k); stop(); }); });
+  start();
+})();
+
+// Waiting-list form: same Azure Logic App endpoint and payload as before.
 const API_ENDPOINT = 'https://prod-24.swedencentral.logic.azure.com:443/workflows/d3c5c5c6333f4b2ea1c3e5092abda1b5/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=vC9c_XKoKe_8YlNNyXe4hmhVUXVSVEigew9SgbUUA8E';
 
 async function handleSubmit(e){
