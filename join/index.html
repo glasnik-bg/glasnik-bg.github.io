@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guild invite · Glasnik</title>
+<meta name="description" content="You've been invited to a guild on Glasnik, where people talk about work without revealing who they are.">
+<!-- Invite links carry a code: keep them out of search results. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="stylesheet" href="../site.css">
+<style>
+  .code { font: 700 28px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .12em; margin: 8px 0 4px; word-break: break-all; }
+  .invite-card { max-width: 560px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="Glasnik home"><img src="../img/logo.png" alt="" width="34" height="34"><img class="word" src="../img/wordmark-white.png" alt="glasnik" height="24"></a>
+    <nav class="site">
+      <a href="../index.html#what-we-do">What we do</a>
+      <a href="../index.html#app">The app</a>
+      <a href="../support.html">Support</a>
+      <a href="../privacy.html">Privacy</a>
+      <a class="nav-cta" href="../index.html#beta">Join the beta</a>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="page">
+  <span class="eyebrow">Guild invite</span>
+  <h1>You've been invited to a guild</h1>
+  <p class="lead">Glasnik is where people talk about work without revealing who they are. Nobody can see who sent you this invite, and Glasnik doesn't record it.</p>
+
+  <div class="card invite-card" id="has-code" hidden>
+    <h3>Open it in the app</h3>
+    <p>If you have Glasnik installed, this opens the guild so you can join.</p>
+    <div class="btns"><a class="btn" id="open-app" href="#">Open in Glasnik</a></div>
+    <p class="small">Didn't open? In the app, go to <strong>Guilds</strong>, tap the ticket icon (<em>Have an invite code?</em>) and enter:</p>
+    <p class="code" id="code"></p>
+  </div>
+
+  <div class="card invite-card" id="no-code" hidden>
+    <h3>This link is missing its code</h3>
+    <p>Ask the person who sent it for the full link, or for the invite code to type into the app under <strong>Guilds → Have an invite code?</strong></p>
+  </div>
+
+  <h2>Don't have the app yet?</h2>
+  <p>Glasnik is in beta. <a href="../index.html#beta">Join the beta</a>, verify your work email, then open this link again or type the code in the app.</p>
+</div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div class="legal-line">
+      &copy; 2026 ГЛАСНИК ООД (GLASNIK LTD OOD). Registered in Sofia, Republic of Bulgaria. ЕИК 208861127.
+      Contact: <a href="mailto:contact@glasnik.bg">contact@glasnik.bg</a>
+    </div>
+  </div>
+</footer>
+<script>
+  (function () {
+    // Only letters and digits survive, so the code can't inject anything into the page or the app link.
+    var raw = new URLSearchParams(location.search).get('code') || '';
+    var code = raw.replace(/[^A-Za-z0-9]/g, '').toUpperCase().slice(0, 16);
+    if (!code) { document.getElementById('no-code').hidden = false; return; }
+    document.getElementById('has-code').hidden = false;
+    document.getElementById('code').textContent = code;
+    var appUrl = 'glasnik://guild-invite/' + encodeURIComponent(code);
+    document.getElementById('open-app').href = appUrl;
+    // Try the app straight away on phones; the page stays as the fallback.
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      setTimeout(function () { location.href = appUrl; }, 300);
+    }
+  })();
+</script>
+</body>
+</html>
