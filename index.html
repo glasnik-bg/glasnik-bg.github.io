@@ -503,6 +503,20 @@ document.querySelectorAll('.tab').forEach(function (tab) {
   start();
 })();
 
+// Sections below the hero fade in as they scroll into view. Skipped when the browser
+// lacks IntersectionObserver or the visitor prefers reduced motion; the hero is never hidden.
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var targets = document.querySelectorAll('.band .section-head, .band .feature.on, .band .demo, .band .beta .card, .band .facts, #verification .step, #approach .stats, #approach .rules li');
+  if (!targets.length) return;
+  document.documentElement.classList.add('reveal-ready');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+  Array.prototype.forEach.call(targets, function (el) { el.classList.add('reveal'); io.observe(el); });
+})();
+
 </script>
 </body>
 </html>
