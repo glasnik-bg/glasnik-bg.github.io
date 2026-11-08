@@ -478,11 +478,11 @@ section.band{padding-top:clamp(4.25rem,7vw,6.75rem);padding-bottom:clamp(4.25rem
 #approach .stat{border:0;border-radius:0;background:transparent;box-shadow:none}
 #approach .stat + .stat{border-left:1px solid var(--line)}
 
-/* beta cards */
-#beta .beta{max-width:900px;margin-inline:auto}
-#beta .beta .card{border-radius:20px;background:linear-gradient(155deg,#FFFFFF,#F6F9FD);
+/* download cards (the section was #beta before launch) */
+#download .beta{max-width:900px;margin-inline:auto}
+#download .beta .card{border-radius:20px;background:linear-gradient(155deg,#FFFFFF,#F6F9FD);
   box-shadow:0 18px 50px -24px rgba(15,42,102,.3);transition:transform .22s,border-color .22s}
-#beta .beta .card:hover{transform:translateY(-3px);border-color:rgba(232,96,63,.45)}
+#download .beta .card:hover{transform:translateY(-3px);border-color:rgba(232,96,63,.45)}
 
 /* company facts with quiet alternating rows */
 #company .facts dt:nth-of-type(odd),#company .facts dd:nth-of-type(odd){background:rgba(11,79,184,.035)}
@@ -499,5 +499,5 @@ a:focus-visible,button:focus-visible{outline:2px solid #0B4FB8;outline-offset:4p
 }
 @media(prefers-reduced-motion:reduce){
   .reveal-ready .reveal{opacity:1!important;transform:none!important}
-  .guild:hover,#verification .step:hover,#beta .beta .card:hover{transform:none}
+  .guild:hover,#verification .step:hover,#download .beta .card:hover{transform:none}
 }
